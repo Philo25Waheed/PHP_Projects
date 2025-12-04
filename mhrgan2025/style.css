@@ -1,0 +1,375 @@
+/* Import Google Fonts for Arabic web (Cairo, Tajawal, El Messiri) */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Tajawal:wght@400;700&family=El+Messiri:wght@700&display=swap');
+/* أضف استيراد خطوط Amiri وLateef من Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Lateef:wght@400&display=swap');
+
+:root {
+    --main-bg: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    --main-text: #222;
+    --card-bg: rgba(255,255,255,0.95);
+    --card-shadow: #bfc9d1aa;
+    --header-color: #2d3a4a;
+    --header-shadow: 0 2px 18px #bfc9d1;
+    --header-gradient: linear-gradient(90deg, #a5b4fc 0%, #f8fafc 100%);
+    --header-border: #a5b4fc;
+}
+body[data-theme="dark"] {
+    --main-bg: linear-gradient(135deg, #1a2233 0%, #232946 60%, #3a2c1e 100%);
+    --main-text: #f3f3f3;
+    --card-bg: rgba(36, 32, 48, 0.98);
+    --card-shadow: #232946cc;
+    --header-color: #ffe082;
+    --header-shadow: 0 2px 32px #232946;
+    --header-gradient: linear-gradient(90deg, #ffd600 0%, #ff4081 50%, #40c4ff 100%);
+    --header-border: #ffd600;
+}
+
+body {
+    font-family: 'Lateef', 'Amiri', 'Tajawal', 'Cairo', Arial, sans-serif;
+    background: var(--main-bg);
+    min-height: 100vh;
+    margin: 0;
+    color: var(--main-text);
+    transition: background 0.4s, color 0.4s;
+}
+
+/* Creative main header style */
+h1.site-title {
+    text-align: center;
+    margin-top: 36px;
+    font-family: 'Amiri', 'El Messiri', 'Lateef', 'Cairo', 'Tajawal', Arial, sans-serif;
+    font-size: 2.8em;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #219ebc 0%, #023047 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 24px #e0e7ef;
+    border-bottom: 4px double #a5b4fc;
+    border-radius: 0 0 32px 32px;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 2;
+    transition: color 0.4s, background 0.4s, text-shadow 0.4s;
+}
+body[data-theme="dark"] h1.site-title {
+    background: linear-gradient(90deg, #ffd600 0%, #ff4081 50%, #40c4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    text-shadow: 0 2px 32px #232946;
+}
+
+/* Toggle button for dark/light mode */
+.theme-toggle {
+    display: inline-block;
+    margin: 18px auto 0 auto;
+    padding: 8px 28px;
+    background: #a5b4fc;
+    color: #232946;
+    border: none;
+    border-radius: 22px;
+    font-size: 1.1em;
+    font-family: 'Tajawal', Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #bfc9d1aa;
+    transition: background 0.3s, color 0.3s;
+}
+body[data-theme="dark"] .theme-toggle {
+    background: #ffd600;
+    color: #232946;
+    box-shadow: 0 2px 8px #ffd60099;
+}
+.theme-toggle:hover {
+    background: #6c7a89;
+    color: #fff;
+}
+
+/* Grid for patriarchs on homepage */
+.patriarchs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 28px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 16px;
+    background: none;
+}
+.patriarch-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px var(--card-shadow);
+    text-align: center;
+    padding: 24px 12px 16px 12px;
+    transition: box-shadow 0.25s, transform 0.18s, background 0.4s, color 0.4s;
+    border: 1.5px solid #e0e7ff;
+    position: relative;
+    overflow: hidden;
+    color: var(--main-text);
+}
+body[data-theme="dark"] .patriarch-card {
+    border: 1.5px solid #ffd600;
+    background: linear-gradient(120deg, #232946 60%, #3a2c1e 100%);
+    color: #ffe082;
+    box-shadow: 0 8px 32px #232946cc;
+}
+body[data-theme="dark"] .patriarch-card:hover {
+    background: linear-gradient(120deg, #2d3a4a 60%, #ffd600 100%);
+    border-color: #ff4081;
+    color: #232946;
+}
+.patriarch-card img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 12px;
+    border: 3px solid #a5b4fc;
+    background: #f8fafc;
+    box-shadow: 0 2px 12px #bfc9d1aa;
+}
+.patriarch-name {
+    font-size: 1.15em;
+    font-weight: bold;
+    color: #1e88e5;
+    margin-bottom: 7px;
+    font-family: 'Amiri', 'Lateef', 'Cairo', 'Tajawal', Arial, sans-serif;
+}
+.patriarch-period {
+    color: #6c7a89;
+    font-size: 1em;
+    font-family: 'Amiri', 'Lateef', 'Cairo', 'Tajawal', Arial, sans-serif;
+}
+
+/* Container for details page */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px var(--card-shadow);
+    padding: 48px 40px;
+    color: var(--main-text);
+    transition: background 0.4s, color 0.4s;
+}
+.back-link {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #2980b9;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-family: 'Tajawal', Arial, sans-serif;
+    transition: color 0.18s;
+}
+.back-link:hover {
+    color: #b03a2e;
+}
+.patriarch-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 48px;
+    margin-bottom: 18px;
+}
+.patriarch-header img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    max-height: 700px;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-bottom: 0;
+    border: 3px solid #a5b4fc;
+    background: #f8fafc;
+    box-shadow: 0 2px 12px #bfc9d1aa;
+}
+.patriarch-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 24px;
+    padding-right: 0;
+    min-width: 0;
+}
+.patriarch-name {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 7px;
+    font-family: 'Amiri', 'Lateef', 'Cairo', 'Tajawal', Arial, sans-serif;
+}
+.patriarch-period {
+    color: #6c7a89;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    font-family: 'Amiri', 'Lateef', 'Cairo', 'Tajawal', Arial, sans-serif;
+}
+.patriarch-bio {
+    font-size: 1.13em;
+    color: #1a237e;
+    margin-bottom: 22px;
+    font-family: 'Amiri', 'Lateef', 'Cairo', 'Tajawal', Arial, sans-serif;
+}
+body[data-theme="dark"] .patriarch-bio {
+    color: #e3f2fd;
+}
+.patriarch-bio-title {
+    font-size: 1.15em;
+    font-weight: bold;
+    color: #b03a2e;
+    margin-bottom: 7px;
+    margin-top: 10px;
+    font-family: 'Amiri', 'Lateef', 'Cairo', 'Tajawal', Arial, sans-serif;
+}
+body[data-theme="dark"] .patriarch-bio-title {
+    color: #ffe082;
+}
+.heresy-section { margin-top: 36px; }
+.heresy-title {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #b03a2e;
+    margin-bottom: 12px;
+    font-family: 'Amiri', 'Lateef', 'Cairo', 'Tajawal', Arial, sans-serif;
+}
+.heresy-card {
+    background: linear-gradient(90deg, #fff8e1 60%, #e1f5fe 100%);
+    color: #3e2723;
+    border: 1px solid #ffe0b2;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px #f9ecec55;
+}
+body[data-theme="dark"] .heresy-card {
+    background: linear-gradient(90deg, #23243a 60%, #2d3a4a 100%);
+    color: #ffe082;
+    border: 1px solid #ffd600;
+}
+body[data-theme="dark"] .heresy-card,
+body[data-theme="dark"] .heresy-card * {
+    color: #ffe082 !important;
+}
+.heresy-name {
+    font-weight: bold;
+    color: #922b21;
+    margin-bottom: 5px;
+    font-family: 'Amiri', 'Lateef', 'Cairo', 'Tajawal', Arial, sans-serif;
+}
+.heresy-desc {
+    color: #444;
+    margin-bottom: 5px;
+    font-family: 'Amiri', 'Lateef', 'Cairo', 'Tajawal', Arial, sans-serif;
+}
+.heresy-response {
+    color: #21618c;
+    font-family: 'Amiri', 'Lateef', 'Cairo', 'Tajawal', Arial, sans-serif;
+}
+body[data-theme="dark"] .heresy-name {
+    color: #ffb74d !important;
+}
+
+/* Buttons and links (homepage navigation) */
+body a[href$="search.php"], body a[href$="heresies.php"] {
+    font-family: 'Tajawal', Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px #bfc9d1aa;
+    border: none;
+    outline: none;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
+body a[href$="search.php"]:hover {
+    background: #174b7a;
+    color: #fff;
+}
+body a[href$="heresies.php"]:hover {
+    background: #922b21;
+    color: #fff;
+}
+
+/* Responsive tweaks */
+@media (max-width: 1100px) {
+    .container { padding: 16px 2vw; }
+    .patriarch-header { flex-direction: column; gap: 18px; align-items: center; }
+    .patriarch-header img { width: 90vw; height: 90vw; max-width: 400px; max-height: 400px; }
+    .patriarch-info { padding-top: 0; }
+}
+
+.synaxarium-section {
+    margin-top: 36px;
+    background: #f8fafc;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #bfc9d1aa;
+    padding: 18px 22px;
+    border: 1.5px solid #a5b4fc;
+}
+body[data-theme="dark"] .synaxarium-section {
+    background: #232946;
+    color: #ffe082;
+    border-color: #ffd600;
+}
+.synaxarium-title {
+    font-size: 1.13em;
+    font-weight: bold;
+    color: #3f51b5;
+    margin-bottom: 8px;
+    font-family: 'Amiri', 'Lateef', 'Cairo', 'Tajawal', Arial, sans-serif;
+}
+body[data-theme="dark"] .synaxarium-title {
+    color: #ffd600;
+}
+.synaxarium-text {
+    font-size: 1.08em;
+    color: #222;
+    font-family: 'Amiri', 'Lateef', 'Cairo', 'Tajawal', Arial, sans-serif;
+    line-height: 1.8;
+}
+body[data-theme="dark"] .synaxarium-text {
+    color: #ffe082;
+}
+
+body[data-theme="dark"] .patriarch-name {
+    color: #ffd600;
+}
+body[data-theme="dark"] .patriarch-period {
+    color: #90caf9;
+}
+body[data-theme="dark"] .patriarch-bio-title,
+body[data-theme="dark"] .heresy-title,
+body[data-theme="dark"] .heresy-name,
+body[data-theme="dark"] .synaxarium-title {
+    color: #ff4081;
+}
+body[data-theme="dark"] .heresy-card {
+    background: linear-gradient(90deg, #23243a 60%, #2d3a4a 100%);
+    color: #ffe082;
+    border: 1px solid #ffd600;
+}
+body[data-theme="dark"] .heresy-response {
+    color: #40c4ff;
+}
+body[data-theme="dark"] .back-link {
+    color: #ffd600;
+}
+body[data-theme="dark"] .back-link:hover {
+    color: #ff4081;
+}
+body[data-theme="dark"] .synaxarium-section {
+    background: #232946;
+    color: #ffe082;
+    border-color: #ffd600;
+}
+body[data-theme="dark"] .synaxarium-title {
+    color: #ffd600;
+}
+body[data-theme="dark"] .synaxarium-text {
+    color: #ffe082;
+} 
