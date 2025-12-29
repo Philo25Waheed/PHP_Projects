@@ -1,0 +1,317 @@
+/* Arabic RTL Support Styles */
+body[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+    font-family: 'Amiri', 'Playfair Display', serif;
+}
+
+/* RTL Navigation */
+body[dir="rtl"] .nav-menu {
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .nav-container {
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .hamburger {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+/* RTL Hero Section */
+body[dir="rtl"] .hero-content {
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .hero-text {
+    text-align: right;
+}
+
+/* RTL About Section */
+body[dir="rtl"] .about-content {
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .about-text {
+    text-align: right;
+}
+
+/* RTL Timeline */
+body[dir="rtl"] .timeline-item {
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .timeline-content {
+    text-align: right;
+}
+
+/* RTL Quotes */
+body[dir="rtl"] .quote-card {
+    text-align: right;
+}
+
+body[dir="rtl"] blockquote {
+    border-right: 4px solid #8B4513;
+    border-left: none;
+    padding-right: 20px;
+    padding-left: 0;
+}
+
+/* RTL Gallery */
+body[dir="rtl"] .gallery-tabs {
+    flex-direction: row-reverse;
+}
+
+/* RTL Legacy */
+body[dir="rtl"] .legacy-content {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+body[dir="rtl"] .legacy-item {
+    text-align: right;
+}
+
+/* RTL Contact */
+body[dir="rtl"] .contact-content {
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .contact-form {
+    text-align: right;
+}
+
+body[dir="rtl"] .contact-info {
+    text-align: right;
+}
+
+/* RTL Footer */
+body[dir="rtl"] .footer-content {
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .footer-section ul {
+    text-align: right;
+}
+
+/* RTL Form Elements */
+body[dir="rtl"] input,
+body[dir="rtl"] textarea,
+body[dir="rtl"] select {
+    text-align: right;
+}
+
+/* RTL Buttons */
+body[dir="rtl"] .btn {
+    text-align: center;
+}
+
+/* RTL Search Modal */
+body[dir="rtl"] .search-content {
+    text-align: right;
+}
+
+body[dir="rtl"] #searchInput {
+    text-align: right;
+}
+
+/* Language Switcher */
+.language-switcher {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+}
+
+body[dir="rtl"] .language-switcher {
+    left: auto;
+    right: 20px;
+}
+
+.lang-btn {
+    padding: 8px 16px;
+    background: rgba(139, 69, 19, 0.9);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    background: rgba(139, 69, 19, 1);
+    transform: translateY(-2px);
+}
+
+.lang-btn.active {
+    background: #8B4513;
+    box-shadow: 0 2px 8px rgba(139, 69, 19, 0.3);
+}
+
+/* Arabic Typography Enhancements */
+body[dir="rtl"] h1,
+body[dir="rtl"] h2,
+body[dir="rtl"] h3 {
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+}
+
+body[dir="rtl"] p {
+    font-family: 'Amiri', serif;
+    line-height: 1.8;
+}
+
+body[dir="rtl"] .hero-title {
+    font-size: 3.5rem;
+    line-height: 1.2;
+}
+
+body[dir="rtl"] .hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+/* RTL Responsive Adjustments */
+@media (max-width: 768px) {
+    body[dir="rtl"] .hero-content {
+        flex-direction: column;
+    }
+    
+    body[dir="rtl"] .about-content {
+        flex-direction: column;
+    }
+    
+    body[dir="rtl"] .contact-content {
+        flex-direction: column;
+    }
+    
+    body[dir="rtl"] .footer-content {
+        flex-direction: column;
+    }
+    
+    body[dir="rtl"] .language-switcher {
+        position: relative;
+        top: auto;
+        right: auto;
+        justify-content: center;
+        margin: 20px 0;
+    }
+}
+
+/* Arabic Number Formatting */
+body[dir="rtl"] .timeline-date {
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+}
+
+/* RTL Animation Adjustments */
+body[dir="rtl"] .timeline-item:nth-child(odd) .timeline-content {
+    margin-right: 30px;
+    margin-left: 0;
+}
+
+body[dir="rtl"] .timeline-item:nth-child(even) .timeline-content {
+    margin-left: 30px;
+    margin-right: 0;
+}
+
+/* Arabic Quote Styling */
+body[dir="rtl"] .quote-card blockquote {
+    font-family: 'Amiri', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+body[dir="rtl"] .quote-card cite {
+    font-family: 'Amiri', serif;
+    font-weight: 600;
+}
+
+/* RTL Map Markers */
+body[dir="rtl"] .marker-tooltip {
+    right: 100%;
+    left: auto;
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+/* Arabic Button Text */
+body[dir="rtl"] .btn {
+    font-family: 'Amiri', serif;
+    font-weight: 600;
+}
+
+/* RTL Form Labels */
+body[dir="rtl"] label {
+    font-family: 'Amiri', serif;
+    font-weight: 600;
+}
+
+/* Arabic Footer Links */
+body[dir="rtl"] .footer-section a {
+    font-family: 'Amiri', serif;
+}
+
+/* RTL Navigation Links */
+body[dir="rtl"] .nav-link {
+    font-family: 'Amiri', serif;
+    font-weight: 500;
+}
+
+/* Arabic Section Titles */
+body[dir="rtl"] .section-title {
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* RTL Gallery Grid */
+body[dir="rtl"] .gallery-grid {
+    direction: rtl;
+}
+
+/* Arabic Contact Details */
+body[dir="rtl"] .contact-details {
+    text-align: right;
+}
+
+body[dir="rtl"] .contact-item {
+    flex-direction: row-reverse;
+}
+
+/* RTL Search Results */
+body[dir="rtl"] .search-results {
+    text-align: right;
+}
+
+/* Arabic Modal Content */
+body[dir="rtl"] .search-content h2 {
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+}
+
+/* RTL Lightbox */
+body[dir="rtl"] .lightbox {
+    direction: rtl;
+}
+
+/* Arabic Form Placeholders */
+body[dir="rtl"] ::placeholder {
+    font-family: 'Amiri', serif;
+    opacity: 0.7;
+}
+
+/* RTL Tab Buttons */
+body[dir="rtl"] .tab-btn {
+    font-family: 'Amiri', serif;
+    font-weight: 600;
+}
+
+/* Arabic Video Titles */
+body[dir="rtl"] .video-item h3 {
+    font-family: 'Amiri', serif;
+    font-weight: 600;
+    text-align: center;
+} 
