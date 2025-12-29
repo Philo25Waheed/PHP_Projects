@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Register - FitZone</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .register-container {
+      max-width: 500px;
+      margin: 40px auto;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--neon);
+      font-weight: 600;
+    }
+    .form-group .input {
+      width: 100%;
+    }
+    .error-message {
+      background: rgba(255, 62, 62, 0.1);
+      border: 1px solid rgba(255, 62, 62, 0.3);
+      color: #ff6b6b;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      display: none;
+    }
+    .success-message {
+      background: rgba(62, 255, 62, 0.1);
+      border: 1px solid rgba(62, 255, 62, 0.3);
+      color: #6bff6b;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      display: none;
+    }
+    .btn-loading {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+<div class="site-overlay">
+<header class="header">
+  <div class="brand">
+    <div class="logo"></div>
+    <div style="font-weight:700;color:var(--neon)">FitZone</div>
+  </div>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="meals.html">Healthy Meals</a>
+    <a href="contact.html">Contact</a>
+    <span class="guest-only"><a href="login.html" class="btn">Login</a></span>
+    <span class="auth-only" style="display:none">
+      <span id="userEmail"></span>
+      <button id="logoutBtn" class="btn">Logout</button>
+    </span>
+    <a href="training.html">Training</a>
+  </nav>
+</header>
+
+<div class="container register-container">
+  <div class="panel">
+    <h2 style="color:var(--neon);margin-bottom:20px">Create Your Account</h2>
+    <p style="color:#cfc7dd;margin-bottom:24px">Join FitZone today and start your fitness journey!</p>
+    
+    <div id="errorMessage" class="error-message"></div>
+    <div id="successMessage" class="success-message"></div>
+    
+    <form id="registerForm">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input id="name" name="name" class="input" type="text" placeholder="Enter your full name" required minlength="2" maxlength="100">
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input id="email" name="email" class="input" type="email" placeholder="Enter your email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" name="password" class="input" type="password" placeholder="Create a password (min 6 characters)" required minlength="6">
+      </div>
+      
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input id="confirmPassword" name="confirmPassword" class="input" type="password" placeholder="Confirm your password" required minlength="6">
+      </div>
+      
+      <button id="submitBtn" class="btn" type="submit" style="width:100%;padding:14px;margin-top:8px">Create Account</button>
+    </form>
+    
+    <p style="margin-top:20px;text-align:center">
+      Already have an account? <a href="login.html" style="color:var(--neon)">Login here</a>
+    </p>
+  </div>
+</div>
+
+<footer class="footer">© 2025 FitZone</footer>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('registerForm');
+  const errorDiv = document.getElementById('errorMessage');
+  const successDiv = document.getElementById('successMessage');
+  const submitBtn = document.getElementById('submitBtn');
+  
+  function showError(message) {
+    errorDiv.textContent = message;
+    errorDiv.style.display = 'block';
+    successDiv.style.display = 'none';
+  }
+  
+  function showSuccess(message) {
+    successDiv.textContent = message;
+    successDiv.style.display = 'block';
+    errorDiv.style.display = 'none';
+  }
+  
+  function setLoading(isLoading) {
+    submitBtn.disabled = isLoading;
+    submitBtn.textContent = isLoading ? 'Creating Account...' : 'Create Account';
+    if (isLoading) {
+      submitBtn.classList.add('btn-loading');
+    } else {
+      submitBtn.classList.remove('btn-loading');
+    }
+  }
+  
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    
+    // Client-side validation
+    if (!name || !email || !password) {
+      showError('Please fill in all fields');
+      return;
+    }
+    
+    if (password !== confirmPassword) {
+      showError('Passwords do not match');
+      return;
+    }
+    
+    if (password.length < 6) {
+      showError('Password must be at least 6 characters');
+      return;
+    }
+    
+    setLoading(true);
+    errorDiv.style.display = 'none';
+    
+    try {
+      const response = await fetch('api/auth/register.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, email, password })
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        showSuccess('Registration successful! Redirecting to home...');
+        
+        // Store user info for UI
+        if (data.user) {
+          localStorage.setItem('fitzone_user', JSON.stringify(data.user));
+        }
+        
+        // Redirect after short delay
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 1500);
+      } else {
+        showError(data.error || 'Registration failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Registration error:', error);
+      showError('Connection error. Please check your internet and try again.');
+    } finally {
+      setLoading(false);
+    }
+  });
+});
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

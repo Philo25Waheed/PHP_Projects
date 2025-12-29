@@ -1,0 +1,31 @@
+:root{
+  --bg:#ffffff; --text:#222; --muted:#6c757d; --primary:#0d6efd;
+}
+body{background:var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif}
+.card{box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+#calendar{min-height:250px}
+
+/* Dark theme */
+body.dark{ --bg:#0b1220; --text:#e6eef8; --muted:#9fb1c8; --primary:#4ea8ff }
+
+.list-group-item.done{text-decoration:line-through;opacity:0.7}
+
+.task-card{transition:transform .12s ease,box-shadow .12s ease}
+.task-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(2,6,23,0.14)}
+
+/* App shell */
+.app-shell{height:100vh;display:flex;flex-direction:column}
+.sidebar{width:220px;min-height:calc(100vh - 56px);position:sticky;top:56px}
+main.view{min-height:calc(100vh - 56px);}
+
+/* Responsive */
+@media (max-width: 768px){
+  .sidebar{display:none}
+}
+
+.nav-link.active{font-weight:600}
+
+.modal .modal-body{max-height:60vh;overflow:auto}
+
+.small-muted{color:var(--muted)}
+

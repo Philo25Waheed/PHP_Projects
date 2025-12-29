@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FitZone - Home</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="site-overlay">
+
+<header class="header"><div class="brand"><div class="logo"></div><div style="font-weight:700;color:var(--neon)">FitZone</div></div>
+  <button class="hamburger" id="navToggle" aria-label="Toggle navigation">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="meals.html">Healthy Meals</a>
+    <a href="contact.html">Contact</a>
+    <span class="guest-only"><a href="login.html" class="btn">Login</a></span>
+    <span class="auth-only" style="display:none"><span id="userEmail"></span> <button id="logoutBtn" class="btn">Logout</button></span>
+  <a href="training.html">Training</a>
+</nav>
+</header>
+
+<section class="hero container" aria-label="hero">
+  <div class="hero-left">
+    <h1 class="h-title">Shape Your Ideal Body</h1>
+    <p class="h-sub">Transform your body with FitZone — the futuristic fitness companion.</p>
+    <a href="services.html" class="cta">Get Started</a>
+  </div>
+  <div class="hero-right" style="flex:1;display:flex;justify-content:center;align-items:center">
+    <img src="img/hero_v2.jpeg" alt="hero" style="width:100%;max-width:520px;border-radius:12px;box-shadow:0 30px 80px rgba(177,59,255,0.12)">
+  </div>
+</section>
+
+<div class="container">
+  <div class="panel">
+    <h2 style="color:var(--neon)">• Activity <span id="streakCount">0</span> Days of Excitement</h2>
+    <p style="margin-top:8px;color:#cfc7dd">Log your workouts and earn consecutive days of excitement</p>
+    <div style="margin-top:12px"><button class="btn" onclick="App.markWorkoutDone()">Log a New Workout</button></div>
+  </div>
+
+<footer class="footer">© 2025 FitZone • Neon Cyberpunk v8</footer>
+</div>
+
+<div id="videoModal" style="display:none;position:fixed;left:12%;top:10%;width:76%;height:auto;background:rgba(0,0,0,0.9);padding:18px;border-radius:12px;z-index:1000"></div>
+
+<script src="js/main.js"></script>
+</body></html>

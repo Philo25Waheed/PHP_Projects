@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Training - FitZone</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="site-overlay">
+        <header class="header">
+            <div class="brand">
+                <div class="logo"></div>
+                <div style="font-weight:700;color:var(--neon)">FitZone</div>
+            </div>
+            <button class="hamburger" id="navToggle" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="meals.html">Healthy Meals</a>
+                <a href="contact.html">Contact</a>
+                <span class="guest-only" style="display: inline-block;"><a class="btn"
+                        href="login.html">Login</a></span>
+                <span class="auth-only" style="display:none">
+                    <span id="userEmail"></span>
+                    <button id="logoutBtn" class="btn">Logout</button>
+                </span>
+                <a href="training.html" class="active">Training</a>
+            </nav>
+        </header>
+
+        <div class="container">
+            <div class="panel">
+                <h2 style="color:var(--neon)">Training Programs</h2>
+                <p style="margin-top:8px;color:#d7d2df">Explore our comprehensive training programs designed for all
+                    fitness levels. Choose the program that fits your goals.</p>
+            </div>
+
+            <!-- Workout Categories -->
+            <div class="panel" style="margin-top:18px">
+                <h3 style="color:var(--neon)">Workout Categories</h3>
+                <div class="grid" style="margin-top:12px">
+                    <div class="card neon-glow">
+                        <h3>💪 Strength Training</h3>
+                        <p>Build muscle and increase strength with resistance training exercises targeting all major
+                            muscle groups.</p>
+                        <button class="btn" style="margin-top:12px"
+                            onclick="App.showCategory('strength')">Explore</button>
+                    </div>
+                    <div class="card neon-glow">
+                        <h3>🏃 Cardio</h3>
+                        <p>Improve cardiovascular health and burn calories with high-energy cardio workouts and HIIT
+                            sessions.</p>
+                        <button class="btn" style="margin-top:12px"
+                            onclick="App.showCategory('cardio')">Explore</button>
+                    </div>
+                    <div class="card neon-glow">
+                        <h3>🧘 Flexibility & Yoga</h3>
+                        <p>Enhance flexibility, balance, and mental well-being with yoga and stretching routines.</p>
+                        <button class="btn" style="margin-top:12px"
+                            onclick="App.showCategory('flexibility')">Explore</button>
+                    </div>
+                    <div class="card neon-glow">
+                        <h3>🎯 Functional Training</h3>
+                        <p>Train movements that improve your daily life activities and sports performance.</p>
+                        <button class="btn" style="margin-top:12px"
+                            onclick="App.showCategory('functional')">Explore</button>
+                    </div>
+                    <div class="card neon-glow">
+                        <h3>🔥 HIIT Workouts</h3>
+                        <p>Short, intense bursts of exercise alternating with low-intensity recovery periods.</p>
+                        <button class="btn" style="margin-top:12px" onclick="App.showCategory('hiit')">Explore</button>
+                    </div>
+                    <div class="card neon-glow">
+                        <h3>🏋️ Powerlifting</h3>
+                        <p>Focus on the three main lifts: squat, bench press, and deadlift for maximum strength gains.
+                        </p>
+                        <button class="btn" style="margin-top:12px"
+                            onclick="App.showCategory('powerlifting')">Explore</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weekly Training Schedule -->
+            <div class="panel" style="margin-top:18px">
+                <h3 style="color:var(--neon)">Sample Weekly Training Schedule</h3>
+                <div class="splits-grid" style="margin-top:12px">
+                    <div class="split-card">
+                        <h3>Monday - Chest & Triceps</h3>
+                        <p>• Bench Press: 4x8<br>• Incline Dumbbell Press: 3x10<br>• Cable Flyes: 3x12<br>• Tricep Dips:
+                            3x12<br>• Skull Crushers: 3x12</p>
+                    </div>
+                    <div class="split-card">
+                        <h3>Tuesday - Back & Biceps</h3>
+                        <p>• Deadlifts: 4x6<br>• Pull-ups: 3x10<br>• Barbell Rows: 3x10<br>• Face Pulls: 3x15<br>•
+                            Barbell Curls: 3x12</p>
+                    </div>
+                    <div class="split-card">
+                        <h3>Wednesday - Legs</h3>
+                        <p>• Squats: 4x8<br>• Leg Press: 3x12<br>• Romanian Deadlifts: 3x10<br>• Leg Curls: 3x12<br>•
+                            Calf Raises: 4x15</p>
+                    </div>
+                    <div class="split-card">
+                        <h3>Thursday - Shoulders & Abs</h3>
+                        <p>• Overhead Press: 4x8<br>• Lateral Raises: 3x15<br>• Rear Delt Flyes: 3x15<br>• Planks:
+                            3x60s<br>• Cable Crunches: 3x15</p>
+                    </div>
+                    <div class="split-card">
+                        <h3>Friday - Full Body / HIIT</h3>
+                        <p>• Clean & Press: 3x8<br>• Kettlebell Swings: 3x15<br>• Burpees: 3x12<br>• Box Jumps:
+                            3x10<br>• Mountain Climbers: 3x30s</p>
+                    </div>
+                    <div class="split-card">
+                        <h3>Weekend - Rest & Recovery</h3>
+                        <p>• Active Recovery<br>• Light Stretching<br>• Foam Rolling<br>• Yoga or Walking<br>• Stay
+                            Hydrated!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Training Tips -->
+            <div class="panel" style="margin-top:18px">
+                <h3 style="color:var(--neon)">Training Tips</h3>
+                <div class="grid" style="margin-top:12px">
+                    <div class="card">
+                        <h3>🎯 Set Clear Goals</h3>
+                        <p>Define specific, measurable goals for your training to stay motivated and track progress.</p>
+                    </div>
+                    <div class="card">
+                        <h3>💧 Stay Hydrated</h3>
+                        <p>Drink plenty of water before, during, and after workouts to maintain optimal performance.</p>
+                    </div>
+                    <div class="card">
+                        <h3>😴 Rest & Recovery</h3>
+                        <p>Allow adequate rest between workouts. Sleep 7-9 hours for muscle recovery and growth.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <footer class="footer">© 2025 FitZone</footer>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

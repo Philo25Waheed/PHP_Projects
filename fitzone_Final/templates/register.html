@@ -1,0 +1,11 @@
+
+{% extends 'base.html' %}
+{% block title %}Register{% endblock %}
+{% block content %}
+  <h2>Create Account</h2>
+  {{ url_for(
+    <label>Name <input id="name" name="name" required></label>
+    <label>Email <input id="email" name="email" type="email" required></label>
+    <label>Password <input id="password" name="password" type="password" minlength="6" required></label>
+    <button class="btn-primary" type="submit">Create account</button>
+  </form>

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}{% block title %}Home{% endblock %}{% block content %}
+<section class="hero d-flex align-items-center justify-content-center">
+  <div class="container text-center text-white hero-inner">
+    <h1 class="display-4 fw-bold">Transform Your Life with Expert Fitness Coaching</h1>
+    <p class="lead my-3">Get personalized training programs, nutrition guidance, and the motivation you need to achieve your fitness goals.</p>
+    <div class="d-flex justify-content-center gap-3 my-3"><a href="{{ url_for('register') }}" class="btn btn-primary btn-lg">Start Your Journey</a><a href="#" class="btn btn-outline-light btn-lg">Watch Demo</a></div>
+    <div class="d-flex justify-content-center gap-4 mt-4 stats"><div>💪 500+ Clients</div><div>🏆 5 Years</div><div>🔥 100% Results</div></div>
+  </div>
+</section>{% endblock %}

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Services - FitZone</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="site-overlay">
+    <header class="header">
+      <div class="brand">
+        <div class="logo"></div>
+        <div style="font-weight:700;color:var(--neon)">FitZone</div>
+      </div>
+      <button class="hamburger" id="navToggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="meals.html">Healthy Meals</a>
+        <a href="contact.html">Contact</a>
+        <span class="guest-only" style="display: inline-block;"><a class="btn" href="login.html">Login</a></span>
+        <span class="auth-only" style="display:none">
+          <span id="userEmail"></span>
+          <button id="logoutBtn" class="btn">Logout</button>
+        </span>
+        <a href="training.html">Training</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="panel">
+        <h2 style="color:var(--neon)">Our Services</h2>
+        <p>Choose Your Training Program.</p>
+        <div class="grid" id="exerciseList" style="margin-top:12px"></div>
+      </div>
+
+      <div class="panel" style="margin-top:12px">
+        <h3 style="color:var(--neon)">Advanced Calorie Calculator</h3>
+        <p>You’ll also find more details and options on the homepage.</p>
+      </div>
+
+      <div class="panel" style="margin-top:12px">
+        <h2 style="color:var(--neon)">Advanced Calorie & Macro Calculator</h2>
+        <p>Choose your goal and calculate calories, protein, carbs, and fats.</p>
+        <form id="advCalForm" style="margin-top:12px;display:grid;grid-template-columns:repeat(2,1fr);gap:8px">
+          <input id="adv_weight" class="input" placeholder="Weight (kg)">
+          <input id="adv_height" class="input" placeholder="Height (cm)">
+          <input id="adv_age" class="input" placeholder="Age">
+          <select id="adv_gender" class="input">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <select id="adv_activity" class="input">
+            <option value="1.2">Low Activity</option>
+            <option value="1.375">Normal</option>
+            <option value="1.55">High Activity</option>
+          </select>
+          <select id="adv_goal" class="input">
+            <option value="maintenance">Maintain</option>
+            <option value="bulking">Bulking</option>
+            <option value="cutting">Cutting</option>
+          </select>
+          <button class="btn" type="button" onclick="App.calcAdvanced()">Calculate</button>
+        </form>
+        <div id="advResults" class="calc-results neon-outline"></div>
+      </div>
+
+
+      <div class="panel" style="margin-top:18px">
+        <h2 style="color:var(--neon)">Training Splits</h2>
+        <p>Choose one of the ready-made training schedules.</p>
+        <div class="splits-grid">
+          <div class="split-card">
+            <h3>Bro Split</h3>
+            <p>Saturday: Chest<br>Sunday: Back<br>Monday: Shoulders<br>Tuesday: Legs<br>Wednesday:
+              Arms<br>Thursday/Friday: Rest</p><button class="btn" onclick="App.openSplit('bro')">View Details</button>
+          </div>
+          <div class="split-card">
+            <h3>Full Body</h3>
+            <p>Full body in the same day · 3–4 times per week</p><button class="btn"
+              onclick="App.openSplit('full')">View Details</button>
+          </div>
+          <div class="split-card">
+            <h3>Push / Pull</h3>
+            <p>Push: Chest + Shoulders + Triceps · Pull: Back + Biceps</p><button class="btn"
+              onclick="App.openSplit('pushpull')">View Details</button>
+          </div>
+          <div class="split-card">
+            <h3>Body Part Split</h3>
+            <p>Day 1: Major Muscle Groups · Day 2: Minor Muscle Groups</p><button class="btn"
+              onclick="App.openSplit('bodypart')">View Details</button>
+          </div>
+          <div class="split-card">
+            <h3>Powerbuilding</h3>
+            <p>Strength + Size · 4–5 days per week</p><button class="btn" onclick="App.openSplit('power')">View
+              Details</button>
+          </div>
+        </div>
+      </div>
+      <div id="splitModal" class="modal-backdrop">
+        <div class="modal" id="splitContent"></div>
+      </div>
+
+    </div>
+    <footer class="footer">© 2025 FitZone</footer>
+  </div>
+  <script src="js/main.js"></script>
+  <div id="videoModal"
+    style="display:none;position:fixed;left:6%;top:6%;width:88%;height:auto;background:rgba(0,0,0,0.9);padding:18px;border-radius:12px;z-index:1000">
+  </div>
+</body>
+
+</html>
